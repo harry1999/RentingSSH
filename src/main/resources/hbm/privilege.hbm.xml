@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="Privilege" table="tb_privilege" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="privilegeId" column="privilegeId" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="privilegeName">
+            <column name="privilegeName" sql-type="varchar(100)" not-null="true"/>
+        </property>
+
+
+        <property name="privilegePath">
+            <column name="privilegePath" sql-type="varchar(200)"/>
+        </property>
+
+
+        <property name="parentId">
+            <column name="parentId" sql-type="int"/>
+        </property>
+
+
+        <property name="isValid">
+            <column name="isValid" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <property name="isMenu">
+            <column name="isMenu" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <property name="privilegeDesc">
+            <column name="privilegeDesc" sql-type="varchar(200)"/>
+        </property>
+
+
+        <set name="subPrivileges" cascade="all" lazy="false" fetch="join">
+            <key column="parentId"></key>
+            <one-to-many class="com.harry.entity.Privilege" not-found="ignore"/>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="User" table="tb_user" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="username">
+            <column name="username" sql-type="varchar(20)" not-null="true"/>
+        </property>
+
+
+        <property name="password">
+            <column name="password" sql-type="varchar(20)" not-null="true"/>
+        </property>
+
+
+        <property name="telephone">
+            <column name="telephone" sql-type="varchar(20)" not-null="true"/>
+        </property>
+
+
+        <property name="realname">
+            <column name="realname" sql-type="varchar(20)"/>
+        </property>
+
+
+        <property name="createDate">
+            <column name="createDate" sql-type="datetime"/>
+        </property>
+
+
+        <property name="isValid">
+            <column name="isValid" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <property name="point">
+            <column name="point" sql-type="int(8)"/>
+        </property>
+
+
+        <property name="grade">
+            <column name="grade" sql-type="varchar(30)" not-null="true"/>
+        </property>
+
+
+        <many-to-one name="role" column="roleId" lazy="false" fetch="join" not-found="ignore"
+                     class="com.harry.entity.Role" cascade="all" not-null="true"/>
+
+
+        <many-to-one name="department" column="deptno" lazy="false" fetch="join" not-found="ignore"
+                     class="com.harry.entity.Department" cascade="all" not-null="true"/>
+
+
+        <set name="orders" cascade="save-update" where=" isValid = 1 " lazy="false" fetch="join">
+            <key column="bookingUserId"></key>
+            <one-to-many class="com.harry.entity.Order" not-found="ignore"></one-to-many>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>

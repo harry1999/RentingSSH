@@ -1,0 +1,43 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+
+<hibernate-configuration>
+
+
+    <session-factory>
+
+
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">false</property>
+        <property name="format_sql">true</property>
+
+
+        <!-- 以文件路径的方式加载bean配置的映射文件 -->
+        <mapping resource="hbm/department.hbm.xml"/>
+        <mapping resource="hbm/district.hbm.xml"/>
+        <mapping resource="hbm/house.hbm.xml"/>
+        <mapping resource="hbm/houseImage.hbm.xml"/>
+        <mapping resource="hbm/houseType.hbm.xml"/>
+        <mapping resource="hbm/privilege.hbm.xml"/>
+        <mapping resource="hbm/role.hbm.xml"/>
+        <mapping resource="hbm/rolePrivilege.hbm.xml"/>
+        <mapping resource="hbm/subDistrict.hbm.xml"/>
+        <mapping resource="hbm/user.hbm.xml"/>
+        <mapping resource="hbm/order.hbm.xml"/>
+        <mapping resource="hbm/orderDetail.hbm.xml"/>
+
+
+        <!-- 以类指定bean类的方式加载映射关系 -->
+        <mapping class="com.harry.entity.Company"/>
+        <mapping class="com.harry.entity.Image"/>
+
+
+    </session-factory>
+
+
+</hibernate-configuration>

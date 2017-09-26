@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="HouseImage" table="tb_house_image" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="type">
+            <column name="type" sql-type="varchar(50)" not-null="true"/>
+        </property>
+
+
+        <many-to-one name="house" class="com.harry.entity.House" not-found="ignore" column="houseId" lazy="false"
+                     fetch="join" cascade="all"/>
+
+        <many-to-one name="image" class="com.harry.entity.Image" not-found="ignore" cascade="all" lazy="false"
+                     fetch="join" column="imageId"/>
+
+
+    </class>
+
+
+</hibernate-mapping>

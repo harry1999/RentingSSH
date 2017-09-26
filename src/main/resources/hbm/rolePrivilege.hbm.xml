@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="RolePrivilege" table="tb_role_privilege" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="description">
+            <column name="description" sql-type="varchar(100)"/>
+        </property>
+
+
+        <many-to-one name="privilege" class="com.harry.entity.Privilege" not-found="ignore" lazy="false" cascade="all"
+                     fetch="join" column="privilegeId"/>
+
+
+    </class>
+
+
+</hibernate-mapping>

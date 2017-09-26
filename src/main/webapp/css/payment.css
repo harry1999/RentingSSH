@@ -1,0 +1,47 @@
+#divWrap {
+
+    width: 50%;
+    text-align: center;
+    border: solid black 1px;
+    padding: 20px;
+    margin: 0 auto;
+
+}
+
+#divTips {
+
+    height: 85px;
+
+}
+
+#divImg {
+
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+}
+
+#spanDeposit, #spanTime {
+
+    color: red;
+    font-weight: bold;
+
+}
+
+#auViewOrders {
+
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 10px;
+    color: red;
+
+}
+
+.wrap {
+
+    border-bottom: solid black 1px;
+    margin-bottom: 20px;
+
+}
+
+

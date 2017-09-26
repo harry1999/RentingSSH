@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="House" table="tb_house" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="title">
+            <column name="title" sql-type="varchar(100)" not-null="true"/>
+        </property>
+
+
+        <property name="area">
+            <column name="area" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+        <property name="price">
+            <column name="price" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+        <property name="deposit">
+            <column name="deposit" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+        <property name="telephone">
+            <column name="tel" sql-type="varchar(11)" not-null="true"/>
+        </property>
+
+
+        <property name="issueDate">
+            <column name="issueDate" sql-type="datetime"/>
+        </property>
+
+
+        <property name="issued">
+            <column name="issued" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <property name="isValid">
+            <column name="isValid" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <property name="description">
+            <column name="description" sql-type="varchar(200)"/>
+        </property>
+
+
+        <many-to-one name="user" column="userId" class="com.harry.entity.User" not-found="ignore" lazy="false"
+                     fetch="join" cascade="save-update" not-null="true"/>
+
+
+        <many-to-one name="bookingUser" column="bookingUserId" class="com.harry.entity.User" not-found="ignore"
+                     lazy="false" fetch="join" cascade="save-update"/>
+
+
+        <many-to-one name="subDistrict" column="subDistrictId" class="com.harry.entity.SubDistrict" not-found="ignore"
+                     lazy="false" fetch="join" cascade="all" not-null="true"/>
+
+
+        <many-to-one name="houseType" column="houseTypeId" class="com.harry.entity.HouseType" not-found="ignore"
+                     lazy="false" fetch="join" cascade="all" not-null="true"/>
+
+
+        <set name="houseImages" cascade="all" lazy="false" fetch="join">
+            <key column="houseId"></key>
+            <one-to-many class="com.harry.entity.HouseImage" not-found="ignore"></one-to-many>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>

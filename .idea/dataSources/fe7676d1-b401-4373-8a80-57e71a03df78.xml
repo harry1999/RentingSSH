@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="renting-ssh@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.3">
+    <root id="1"/>
+    <schema id="2" parent="1" name="renting-ssh">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="bookmall"/>
+    <schema id="4" parent="1" name="dealerprice-demo"/>
+    <schema id="5" parent="1" name="groupon"/>
+    <schema id="6" parent="1" name="groupon-premium"/>
+    <schema id="7" parent="1" name="hibernate-demo4"/>
+    <schema id="8" parent="1" name="hotel-demo"/>
+    <schema id="9" parent="1" name="information_schema"/>
+    <schema id="10" parent="1" name="mybatis"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="performance_schema"/>
+    <schema id="13" parent="1" name="renting"/>
+    <schema id="14" parent="1" name="renting-struts"/>
+    <schema id="15" parent="1" name="sakila"/>
+    <schema id="16" parent="1" name="ssm-demo"/>
+    <schema id="17" parent="1" name="sys"/>
+    <schema id="18" parent="1" name="tmall"/>
+    <schema id="19" parent="1" name="travel"/>
+    <schema id="20" parent="1" name="trident"/>
+    <schema id="21" parent="1" name="world"/>
+    <table id="22" parent="2" name="hibernate_sequence"/>
+    <table id="23" parent="2" name="tb_company"/>
+    <table id="24" parent="2" name="tb_department"/>
+    <table id="25" parent="2" name="tb_district"/>
+    <table id="26" parent="2" name="tb_house"/>
+    <table id="27" parent="2" name="tb_house_image"/>
+    <table id="28" parent="2" name="tb_house_type"/>
+    <table id="29" parent="2" name="tb_image"/>
+    <table id="30" parent="2" name="tb_order"/>
+    <table id="31" parent="2" name="tb_order_detail"/>
+    <table id="32" parent="2" name="tb_privilege"/>
+    <table id="33" parent="2" name="tb_role"/>
+    <table id="34" parent="2" name="tb_role_privilege"/>
+    <table id="35" parent="2" name="tb_sub_district"/>
+    <table id="36" parent="2" name="tb_user"/>
+    <column id="37" parent="22" name="next_val">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="38" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="23" name="cellphone">
+      <Position>2</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="40" parent="23" name="contact">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="41" parent="23" name="hotLine">
+      <Position>4</Position>
+      <DataType>varchar(13)|0</DataType>
+    </column>
+    <column id="42" parent="23" name="innerNo">
+      <Position>5</Position>
+      <DataType>varchar(4)|0</DataType>
+    </column>
+    <column id="43" parent="23" name="isVerify">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="44" parent="23" name="name">
+      <Position>7</Position>
+      <DataType>varchar(200)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="45" parent="23" name="UK_r99lfqfbjul3wm3nw9dwh4ypg">
+      <ColNames>innerNo</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="46" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="47" parent="23" name="UK_r99lfqfbjul3wm3nw9dwh4ypg">
+      <ColNames>innerNo</ColNames>
+      <UnderlyingIndexName>UK_r99lfqfbjul3wm3nw9dwh4ypg</UnderlyingIndexName>
+    </key>
+    <column id="48" parent="24" name="deptno">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="49" parent="24" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="50" parent="24" name="description">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="51" parent="24" name="isValid">
+      <Position>4</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="52" parent="24" name="parentId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="53" parent="24" name="FKcoov3kf5h833rd8ee66la870y">
+      <ColNames>parentId</ColNames>
+    </index>
+    <key id="54" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>deptno</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="55" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="56" parent="25" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="57" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="58" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="59" parent="26" name="title">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="60" parent="26" name="area">
+      <Position>3</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="61" parent="26" name="price">
+      <Position>4</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="62" parent="26" name="tel">
+      <Position>5</Position>
+      <DataType>varchar(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="63" parent="26" name="issueDate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="64" parent="26" name="isValid">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="65" parent="26" name="description">
+      <Position>8</Position>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;暂时没有关于该房屋的信息&apos;</DefaultExpression>
+    </column>
+    <column id="66" parent="26" name="userId">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="26" name="subDistrictId">
+      <Position>10</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="68" parent="26" name="houseTypeId">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="26" name="bookingUserId">
+      <Position>12</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="70" parent="26" name="issued">
+      <Position>13</Position>
+      <DataType>int(1)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="71" parent="26" name="deposit">
+      <Position>14</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="72" parent="26" name="FK5oj5cp14vt7k70nhbkk911sew">
+      <ColNames>bookingUserId</ColNames>
+    </index>
+    <index id="73" parent="26" name="FK9bd3ol491wivrqm6cv2wfmg25">
+      <ColNames>subDistrictId</ColNames>
+    </index>
+    <index id="74" parent="26" name="FKdmqd5c7u7a7m9lmfjal78sear">
+      <ColNames>userId</ColNames>
+    </index>
+    <index id="75" parent="26" name="FKp3s1nhhcn9pxikpmahhk4bbr">
+      <ColNames>houseTypeId</ColNames>
+    </index>
+    <key id="76" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="77" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="78" parent="27" name="type">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="79" parent="27" name="houseId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="80" parent="27" name="imageId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="81" parent="27" name="FKpcgd8g9uf7r0dpkvdqupwrmff">
+      <ColNames>imageId</ColNames>
+    </index>
+    <index id="82" parent="27" name="FKs502fgbdkd4kes0w73fgj6lbd">
+      <ColNames>houseId</ColNames>
+    </index>
+    <key id="83" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="84" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="85" parent="28" name="type">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="86" parent="28" name="description">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <key id="87" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="88" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="89" parent="29" name="imagePath">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="90" parent="29" name="isValid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <key id="91" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="92" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="93" parent="30" name="bookingUserId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="94" parent="30" name="userId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="30" name="houseId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="96" parent="30" name="createDate">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="97" parent="30" name="dealDate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="98" parent="30" name="isValid">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="99" parent="30" name="status">
+      <Position>8</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="100" parent="30" name="FKam9aouncflh5hg1aulugb65mr">
+      <ColNames>bookingUserId</ColNames>
+    </index>
+    <key id="101" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="102" parent="31" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="103" parent="31" name="orderId">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="104" parent="31" name="username">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="105" parent="31" name="bookingUserName">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="106" parent="31" name="title">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="107" parent="31" name="area">
+      <Position>6</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="108" parent="31" name="price">
+      <Position>7</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="109" parent="31" name="deposit">
+      <Position>8</Position>
+      <DataType>double|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="110" parent="31" name="FK40jtwdcjsgdf31n51gj9kukg7">
+      <ColNames>orderId</ColNames>
+    </index>
+    <key id="111" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="112" parent="32" name="privilegeId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="113" parent="32" name="privilegeName">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="114" parent="32" name="privilegePath">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="115" parent="32" name="parentId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="116" parent="32" name="isValid">
+      <Position>5</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="117" parent="32" name="privilegeDesc">
+      <Position>6</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="118" parent="32" name="isMenu">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <index id="119" parent="32" name="FKrsej1b1wpx36vfgkehml7rqec">
+      <ColNames>parentId</ColNames>
+    </index>
+    <key id="120" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>privilegeId</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="121" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="122" parent="33" name="roleName">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="33" name="roleDesc">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="124" parent="33" name="isValid">
+      <Position>4</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="125" parent="33" name="parentId">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <index id="126" parent="33" name="FKapmfb7r5lkpixbnxyw2bokp5o">
+      <ColNames>parentId</ColNames>
+    </index>
+    <key id="127" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="128" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="129" parent="34" name="description">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="130" parent="34" name="roleId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="131" parent="34" name="privilegeId">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="132" parent="34" name="FK8abnqki8pluyuoacf7ih04p4">
+      <ColNames>roleId</ColNames>
+    </index>
+    <index id="133" parent="34" name="FKpaqk08knsq0nda8j3t2jehs24">
+      <ColNames>privilegeId</ColNames>
+    </index>
+    <key id="134" parent="34" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="135" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="136" parent="35" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="137" parent="35" name="districtId">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="138" parent="35" name="FK4luvx2mmp9ahug1h5bgi4qvap">
+      <ColNames>districtId</ColNames>
+    </index>
+    <key id="139" parent="35" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="140" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="141" parent="36" name="username">
+      <Position>2</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="142" parent="36" name="password">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="143" parent="36" name="telephone">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="144" parent="36" name="realname">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="145" parent="36" name="createDate">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="146" parent="36" name="isValid">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <column id="147" parent="36" name="roleId">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="148" parent="36" name="deptno">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="149" parent="36" name="point">
+      <Position>10</Position>
+      <DataType>int(8)|0</DataType>
+    </column>
+    <column id="150" parent="36" name="grade">
+      <Position>11</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <index id="151" parent="36" name="FKg21iho4tmq4f29bqt5nnhh43i">
+      <ColNames>deptno</ColNames>
+    </index>
+    <index id="152" parent="36" name="FKvq039bkvpokq1krmcjuccnhm">
+      <ColNames>roleId</ColNames>
+    </index>
+    <index id="153" parent="36" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <Unique>1</Unique>
+    </index>
+    <key id="154" parent="36" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="155" parent="36" name="username_UNIQUE">
+      <ColNames>username</ColNames>
+      <UnderlyingIndexName>username_UNIQUE</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

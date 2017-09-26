@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+    <link rel="stylesheet" type="text/css" href="../../css/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../../css/icon.css">
+    <link rel="stylesheet" type="text/css" href="../../css/demo.css">
+    <link rel="stylesheet" type="text/css" href="../../css/management.css">
+
+
+    <script src="../../scripts/jquery.min.js"></script>
+    <script src="../../scripts/jquery.easyui.min.js"></script>
+    <script src="../../scripts/management.js"></script>
+    <script src="../../scripts/common.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+<div id="windowUserInfo" class="easyui-window" minimizable="false" maximizable="false"
+     closed="true" style="width:600px;height:400px"
+     data-options="modal:true">
+
+    <div class="easyui-layout" data-options="fit:true">
+
+        <div data-options="region:'center'" style="padding:10px;">
+
+
+            <div class="divInfoTips">
+
+                <span id="tipsUserInfo" class="spanInfoTips">
+
+                </span>
+
+            </div>
+
+
+            <input type="hidden" name="userId">
+
+            <br/>
+
+            用户名: <br/>
+            <input type="text" name="username"/>
+            <br/>
+
+            密码: <br/>
+            <input type="text" name="password"/>
+            <br/>
+
+            真实姓名: <br/>
+            <input type="text" name="realname"/>
+            <br/>
+
+            电话号码: <br/>
+            <input type="text" name="tel"/>
+
+            <br/>
+            <br/>
+
+            所属角色: <br/>
+            <select id="selectRoles">
+
+            </select>
+
+            <br/>
+            <br/>
+
+            所属部门: <br/>
+            <select id="selectDepts"></select>
+
+
+        </div>
+
+
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+            <a class="easyui-linkbutton" id="auUserSubmit" data-options="iconCls:'icon-ok'" href="javascript:void(0)"
+               style="width:80px">提交</a>
+            <a class="easyui-linkbutton" id="auUserCannel" data-options="iconCls:'icon-cancel'"
+               href="javascript:void(0)"
+               style="width:80px">取消</a>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<div id="dialogTips" class="easyui-dialog" style="padding:5px;width:400px;height:200px;"
+     title=" tips " iconCls="icon-ok"
+     buttons="#dlg-buttons3">
+
+</div>
+
+
+<div id="dlg-buttons3">
+
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="closeDialogTips()">Ok</a>
+
+</div>
+
+
+<div id="dialogComfirm" class="easyui-dialog" style="padding:5px;width:400px;height:200px;"
+     title=" tips " iconCls="icon-ok"
+     buttons="#dlg-buttons2">
+
+
+</div>
+
+
+<div id="dlg-buttons2">
+
+    <a href="javascript:void(0)" id="auComfirm" class="easyui-linkbutton" iconCls="icon-ok">确认</a>
+    <a class="easyui-linkbutton" id="auCannel" data-options="iconCls:'icon-cancel'" href="javascript:void(0)"
+       style="width:80px">取消</a>
+
+</div>
+
+
+<!-- 以上是“用户管理”菜单用到的组件 -->
+
+
+<div id="windowHouseInfo" class="easyui-window" minimizable="false" maximizable="false" title="My Window"
+     style="width:600px;height:400px"
+     data-options="iconCls:'icon-save',modal:true">
+
+
+    <div class="easyui-layout" data-options="fit:true">
+
+
+        <div data-options="region:'center'" style="padding:10px;">
+
+
+            <DIV class=box>
+                <FORM id=addHouseAction method=post
+
+                      action="/RentingSSH/common/createHouse" enctype="multipart/form-data">
+
+                    <DIV class=infos>
+                        <TABLE class=field>
+                            <TBODY>
+
+                            <tr>
+
+                                <input type="hidden" name="house.id">
+
+                            </tr>
+
+
+                            <TR>
+                                <TD>标　　题：</TD>
+                                <TD><INPUT class=text type=text name=house.title>
+                                </TD>
+
+
+                                <td>
+
+                                    <span id="tipsTitle" class="spanInfoTips"></span>
+
+                                </td>
+
+
+                            </TR>
+
+
+                            <TR>
+                                <TD class=field>户　　型：</TD>
+                                <TD>
+
+
+                                    <SELECT class=text name=house.houseType.id>
+
+
+                                    </SELECT>
+
+                                </TD>
+                            </TR>
+
+
+                            <TR>
+                                <TD>面　　积：</TD>
+                                <TD>
+
+                                    <INPUT class=text type=text name=house.area>
+
+                                </TD>
+
+
+                                <td>
+
+                                    <span id=tipsArea class="spanInfoTips"></span>
+
+                                </td>
+
+
+                            </TR>
+
+
+                            <div>
+
+
+                            </div>
+
+
+                            <TR>
+                                <TD>价　　格：</TD>
+                                <TD><INPUT class=text type=text name=house.price>
+                                </TD>
+
+                                <td>
+
+                                    <span id="tipsPrice" class="spanInfoTips"></span>
+
+                                </td>
+
+                            </TR>
+
+
+                            <TR>
+                                <TD>保证金：</TD>
+                                <TD><INPUT class=text type=text name=house.deposit>
+                                </TD>
+
+
+                                <td>
+
+                                    <span id="tipsDeposit" class="spanInfoTips"></span>
+
+                                </td>
+
+                            </TR>
+
+
+                            <TR>
+                                <TD class=field>位　　置：</TD>
+                                <TD width="220px">区：
+
+                                    <SELECT class=text name=district_id>
+
+
+                                    </SELECT> 街：
+
+                                    <SELECT class=text name=house.subDistrict.id>
+
+
+                                    </SELECT>
+                                </TD>
+                            </TR>
+
+
+                            <TR>
+                                <TD>联系方式：</TD>
+                                <TD><INPUT class=text type=text name=house.telephone>
+                                </TD>
+
+                                <td>
+
+                                    <span id="tipsTel" class="spanInfoTips"></span>
+
+                                </td>
+
+
+                            </TR>
+                            <TR>
+                                <TD>详细信息：</TD>
+                                <TD><TEXTAREA name=house.description></TEXTAREA></TD>
+                            </TR>
+
+
+                            </TBODY>
+                        </TABLE>
+
+
+                        <br/>
+                        <br/>
+
+
+                        <div id="divUpload">
+
+
+                            <input type="file" name="imageMain"/>
+
+                            <span>请上传主图</span>
+
+                            <br/>
+                            <br/>
+
+
+                            <input type="file" name="imagesDetail" multiple/>
+
+                            <span>请上传附图</span>
+
+
+                        </div>
+
+
+                    </DIV>
+                </FORM>
+
+
+            </DIV>
+
+
+        </div>
+
+
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+
+            <a class="easyui-linkbutton" id="auHouseSubmit" data-options="iconCls:'icon-ok'" href="javascript:void(0)"
+               style="width:80px">确认</a>
+            <a class="easyui-linkbutton" id="auHouseCannel" data-options="iconCls:'icon-cancel'"
+               href="javascript:void(0)" style="width:80px">取消</a>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+<!-- 以上是“房屋信息管理”用到的组件 -->
+
+
+<div id="windowRoleInfo" class="easyui-window" minimizable="false" maximizable="false"
+     closed="true" style="width:600px;height:400px"
+     data-options="modal:true">
+
+    <div class="easyui-layout" data-options="fit:true">
+
+        <div data-options="region:'west'" style="padding:10px;width:200px;">
+
+
+            <div class="divInfoTips">
+
+                <span id="tipsRoleName" class="spanInfoTips">
+
+                </span>
+
+            </div>
+
+
+            <input type="hidden" name="roleId">
+
+            <br/>
+
+            角色名称: <br/>
+            <input type="text" name="roleName"/>
+
+            <br/>
+            <br/>
+
+            角色描述: <br/>
+            <input type="text" name="roleDesc"/>
+            <br/>
+            <br/>
+
+
+        </div>
+
+
+        <div data-options="region:'center'" style="padding:10px;width:400px;">
+
+
+            <div class="divInfoTips">
+
+                <span> 请勾选权限 </span>
+
+            </div>
+
+
+            <ul class="easyui-tree" id="ulPrivilegeTree">
+
+            </ul>
+
+
+        </div>
+
+
+        <div data-options="region:'south',border:false" style="text-align:right;padding:5px 0 0;">
+
+            <a class="easyui-linkbutton" id="auRoleSubmit" data-options="iconCls:'icon-ok'" href="javascript:void(0)"
+               style="width:80px">提交</a>
+            <a class="easyui-linkbutton" id="auRoleCannel" data-options="iconCls:'icon-cancel'"
+               href="javascript:void(0)"
+               style="width:80px">取消</a>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<!-- 以上是“角色管理”用到的组件 -->
+
+
+<div id="cc" class="easyui-layout" data-options="fit : 'true'" style="width:100%;height:80%;">
+
+    <div data-options="region:'north',title:'租房网后台管理系统',split:true " style="height:120px;">
+
+        <div id="divAccount">
+
+
+        </div>
+
+    </div>
+
+
+    <div id="divLayoutWest" data-options="region:'west',title:'菜单',split:true " style="width:200px;">
+
+
+    </div>
+
+
+    <div data-options="region:'center'" style="padding:5px;background:#eee; height: 100%">
+
+        <div class="easyui-tabs" fit="true" id="tt">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

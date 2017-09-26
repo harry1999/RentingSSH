@@ -1,0 +1,13 @@
+#tipsUsername, #tipsPassword, #tipsRePwd, #tipsPhone, #tipsRealname {
+
+    color: red;
+    font-weight: bold;
+    display: none;
+
+}
+
+.wrap {
+
+    border-bottom: solid black 1px;
+
+}

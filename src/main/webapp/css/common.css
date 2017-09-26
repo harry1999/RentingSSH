@@ -1,0 +1,14 @@
+#divAccount {
+
+    margin-top: 20px;
+    color: red;
+    font-weight: bold;
+    float: right;
+
+}
+
+ #divAccount span, #divAccount a {
+
+    margin-right: 20px;
+
+}

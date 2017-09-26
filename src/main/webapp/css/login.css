@@ -1,0 +1,37 @@
+.divWrap {
+
+    margin: 0 auto;
+    text-align: center;
+
+}
+
+#tipsFeedback, #tipsUsername, #tipsPassword, #tipsCode {
+
+    color: red;
+    font-weight: bold;
+    font-size: 10px;
+    height: 12px;
+    display: none;
+
+}
+
+#imgShowCode {
+
+    color: red;
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+.divCheckBox {
+
+    text-align: center;
+    font-size: 5px;
+
+}
+
+.wrap {
+
+    border-bottom: solid black 1px;
+
+}

@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="Role" table="tb_role" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="roleName">
+            <column name="roleName" sql-type="varchar(20)" not-null="true"/>
+        </property>
+
+
+        <property name="roleDesc">
+            <column name="roleDesc" sql-type="varchar(200)"/>
+        </property>
+
+
+        <property name="isValid">
+            <column name="isValid" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <many-to-one name="parentRole" not-found="ignore" class="com.harry.entity.Role" cascade="save-update"
+                     column="parentId" lazy="false"/>
+
+
+        <set name="rolePrivileges" lazy="false" cascade="all" fetch="join">
+            <key column="roleId"></key>
+            <one-to-many class="com.harry.entity.RolePrivilege" not-found="ignore"/>
+        </set>
+
+
+    </class>
+
+
+</hibernate-mapping>

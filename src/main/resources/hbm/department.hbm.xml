@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="Department" table="tb_department" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="deptno" column="deptno" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="name">
+            <column name="name" sql-type="varchar(50)" not-null="true"/>
+        </property>
+
+
+        <property name="description">
+            <column name="description" sql-type="varchar(200)"/>
+        </property>
+
+
+        <property name="isValid">
+            <column name="isValid" sql-type="int(1)" not-null="true"/>
+        </property>
+
+
+        <many-to-one name="parentDepartment" column="parentId" not-found="ignore" fetch="join"
+                     lazy="false" cascade="all" class="com.harry.entity.Department"/>
+
+
+    </class>
+
+
+</hibernate-mapping>

@@ -1,0 +1,47 @@
+#divLayoutWest li {
+
+    list-style-type: circle;
+
+}
+
+.divInfoTips {
+
+    text-align: center;
+    height: 20px;
+}
+
+.spanInfoTips {
+
+    color: red;
+    font-weight: bold;
+
+}
+
+#ulPrivilegeTree {
+
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+
+#ulPrivilegeTree li {
+
+    list-style-type: none;
+
+}
+
+#divAccount {
+
+margin: 30px;
+    color: red;
+    font-weight: bold;
+
+}
+
+#divAccount span, #divAccount   a {
+
+margin-right:  20px;
+
+}
+
+

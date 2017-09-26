@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping package="com.harry.entity">
+
+
+    <class name="OrderDetail" table="tb_order_detail" dynamic-insert="true" dynamic-update="true">
+
+
+        <id name="id" column="id" type="int">
+
+            <generator class="native"/>
+
+        </id>
+
+
+        <property name="orderId">
+            <column name="orderId" sql-type="int"/>
+        </property>
+
+
+        <property name="username">
+            <column name="username" sql-type="varchar(50)"/>
+        </property>
+
+
+        <property name="bookingUserName">
+            <column name="bookingUserName" sql-type="varchar(50)"/>
+        </property>
+
+
+        <property name="title">
+            <column name="title" sql-type="varchar(100)" not-null="true"/>
+        </property>
+
+
+        <property name="area">
+            <column name="area" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+        <property name="price">
+            <column name="price" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+        <property name="deposit">
+            <column name="deposit" sql-type="double" precision="10" scale="2" not-null="true"/>
+        </property>
+
+
+    </class>
+
+
+</hibernate-mapping>

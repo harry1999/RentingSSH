@@ -1,0 +1,434 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+
+<struts>
+
+    <constant name="struts.convention.package.locators" value="controller"/>
+
+
+    <constant name="struts.multipart.maxSize" value="52428800"/>
+
+
+    <package name="packageOne" namespace="/user" extends="json-default, struts-default">
+
+
+        <interceptors>
+
+            <interceptor name="authInterceptor" class="com.harry.authority.AuthInterceptor"/>
+
+            <interceptor-stack name="myStack">
+
+                <interceptor-ref name="authInterceptor"></interceptor-ref>
+
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+
+            </interceptor-stack>
+
+        </interceptors>
+
+
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+
+        <global-results>
+
+            <result name="error">pages/404.html</result>
+            <result name="login">pages/login.htm</result>
+            <result name="input">pages/index.htm</result>
+
+        </global-results>
+
+
+        <action name="login" class="com.harry.action.UserAction" method="onLogin">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+
+
+        <action name="isLogin" class="com.harry.action.UserAction" method="isLogin">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="checkRememberMe" class="com.harry.action.UserAction" method="checkRememberMe">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="getUserPrivileges" class="com.harry.action.UserAction" method="getUserPrivileges">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="checkUsername" class="com.harry.action.UserAction" method="getUserByName">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="logout" class="com.harry.action.UserAction" method="onLogout">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="loadUsers" class="com.harry.action.UserAction" method="loadUsers">
+
+
+            <result name="success" type="json">
+                <param name="root">usersInfo</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="getRoles" class="com.harry.action.UserAction" method="getRoles">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="getDepts" class="com.harry.action.UserAction" method="getDepts">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="add" class="com.harry.action.UserAction" method="onCreateUser">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="register" class="com.harry.action.UserAction" method="onRegister">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="update" class="com.harry.action.UserAction" method="onUpdateUser">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="delete" class="com.harry.action.UserAction" method="onDeleteUser">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="me" class="com.harry.action.UserAction" method="getMe">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="deleteOrder" class="com.harry.action.UserAction" method="onDeleteOrder">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+    </package>
+
+
+    <package name="packageTwo" namespace="/common" extends="json-default,struts-default">
+
+
+        <interceptors>
+
+            <interceptor name="authInterceptor" class="com.harry.authority.AuthInterceptor"/>
+
+            <interceptor-stack name="myStack">
+
+                <interceptor-ref name="authInterceptor"></interceptor-ref>
+
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+
+
+            </interceptor-stack>
+
+        </interceptors>
+
+
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+
+        <global-results>
+
+            <result name="error">pages/404.html</result>
+            <result name="login">pages/login.htm</result>
+            <result name="input">pages/index.htm</result>
+
+        </global-results>
+
+
+        <action name="getHouseTypes" class="com.harry.action.CommonAction" method="getHouseTypes">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="getDistricts" class="com.harry.action.CommonAction" method="getDistricts">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="getCompanyInfo" class="com.harry.action.CommonAction" method="getCompanyInfo">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="getHouses" class="com.harry.action.CommonAction" method="getHouses">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="loadHouses" class="com.harry.action.CommonAction" method="loadHouses">
+
+            <result name="success" type="json">
+                <param name="root">housesInfo</param>
+            </result>
+
+        </action>
+
+
+        <action name="createHouse" class="com.harry.action.CommonAction" method="onCreateHouse">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="updateHouse" class="com.harry.action.CommonAction" method="onUpdateHouse">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="issueHouses" class="com.harry.action.CommonAction" method="onIssueHouse">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="unShelveHouses" class="com.harry.action.CommonAction" method="onUnShelveHouses">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="delHouses" class="com.harry.action.CommonAction" method="onDelHouses">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="loadRoles" class="com.harry.action.CommonAction" method="loadRoles">
+
+
+            <result name="success" type="json">
+                <param name="root">rolesInfo</param>
+            </result>
+
+        </action>
+
+
+        <action name="createRole" class="com.harry.action.CommonAction" method="onCreateRole">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="updateRole" class="com.harry.action.CommonAction" method="onUpdateRole">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="checkRolesCorrelation" class="com.harry.action.CommonAction" method="onCheckRolesCorrelation">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+        <action name="delRoles" class="com.harry.action.CommonAction" method="onDelRoles">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+        </action>
+
+
+    </package>
+
+
+    <package name="packageThree" namespace="/business" extends="json-default,struts-default">
+
+
+        <interceptors>
+
+            <interceptor name="authInterceptor" class="com.harry.authority.AuthInterceptor"/>
+
+            <interceptor-stack name="myStack">
+
+                <interceptor-ref name="authInterceptor"></interceptor-ref>
+
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+
+            </interceptor-stack>
+
+        </interceptors>
+
+
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+
+        <global-results>
+
+            <result name="error">pages/404.html</result>
+            <result name="login">pages/login.htm</result>
+            <result name="input">pages/index.htm</result>
+
+        </global-results>
+
+
+        <action name="reserveHouse" class="com.harry.action.BusinessAction" method="onReserveHouse">
+
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+        <action name="comfirmReserve" class="com.harry.action.BusinessAction" method="onComfirmReserve">
+
+            <result name="success" type="json">
+                <param name="root">result</param>
+            </result>
+
+
+        </action>
+
+
+    </package>
+
+
+</struts>
