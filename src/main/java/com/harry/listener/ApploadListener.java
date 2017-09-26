@@ -24,7 +24,7 @@ public class ApploadListener implements ServletContextListener {
     ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
 
 
-    // 创建定时任务定时，清理超过一分钟没处理的订单
+    // 创建定时任务，定时清理超过一分钟没处理的订单
 
     private Runnable getOrderCheckingTask( ) {
 
